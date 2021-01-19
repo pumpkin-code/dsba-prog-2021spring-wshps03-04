@@ -14,9 +14,33 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
+#include <iostream>     // cin, cout, endl, getline....
+#include <string>       // string,
+
+using std::cout;
+using std::cin;
+
+//void main()
 int main()
 {
-    // TODO: input your code here
+    // input your code here
+    cout << "Hello, world!\n\n";        // The operator<< outputs something to the stream
 
-    return 0;
+    cout << "Enter your name: ";
+    std::string userName;       // s, str are the common names for “general strings”
+
+//  This code allows only to input a string w/ no spaces.
+//    cin >> userName;                    // The operator>> inputs something from the stream
+//                                        // and uses spaces for separating different objects,
+//                                        // so it can't be used for input a line that
+//                                        // contains any spaces
+
+    // This code allow to input a string containing some spaces
+    std::getline(std::cin, userName);       // cin >> useName, however spaces matter here
+
+    cout << "Hello, " << userName;
+
+
+    return 0;       // it's optional accordint to the standard, however we are
+                    // going to use it anyway.
 }
