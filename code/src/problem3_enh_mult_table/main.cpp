@@ -14,9 +14,45 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
+#include <cstdint>              // must include it for uint16_t (don't use stdint.h)
+#include <iostream>
+
+
 int main()
 {
-    // TODO: input your code here
+
+    // indentation matters!
+
+    char repeatAnswer;
+    do
+    {
+        //char repeatAnswer;        // can't get acces to the var outside of the current scope
+                                    // defined by {  }
+
+        uint16_t m, n;
+
+        std::cout << "Input 1 <= (m, n) <= 8: ";
+        std::cin >> m >> n;
+
+        // the outter loop for iterating rows
+        for (uint16_t i = 0; i < m; ++i)
+        {
+            // the inner loop for iterating columns (elements in the i-th row)
+            for (uint16_t j = 0; j < n; ++j)
+            {
+                std::cout << i * j ;// << '\t';
+                if (j < n - 1)  // provide the output ou
+                    std::cout << '\t';
+            }
+
+            // break the current line — put the cursor to the next line
+            std::cout << std::endl;     // the same as std::cout << '\n';
+        }
+
+        std::cout << "Do you want to repeat the program? Press Y to repeat. ";
+        std::cin >> repeatAnswer;
+
+    } while(repeatAnswer == 'Y' || repeatAnswer == 'y');
 
     return 0;
 }

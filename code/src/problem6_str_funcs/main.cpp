@@ -16,9 +16,33 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
+#include <cstring>      // is for c-string functions (don't use obsolete string.h)
+#include <string>       // is for std::string
+
+
 int main()
 {
-    // TODO: input your code here
+    // let's briefly look at obsolete (legacy) c- functions
+    char* str1 = "Hello!";          // the same as char str1[] = "Hello!"
+    size_t str1Len = strlen(str1);
+
+    char str2[] = "world";
+    size_t str2Len = strlen(str2);
+
+    //str1 == str2      // this doesn't compare actual strings
+    //str1 < str2       // this is also unapplicable
+    int sCompRes = strcmp(str1, str2);
+
+
+    // std::string
+
+    std::string s1("Hello!");       // initializing
+    std::string s2 = "world";       // initializing!!! (not copy assignment)
+    size_t s1len = s1.length();
+    size_t s2len = s2.size();
+    bool s12Comp = (s1 < s2);
+    bool s12Eq = (s1 == s2);
+
 
     return 0;
 }
